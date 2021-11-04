@@ -6,5 +6,26 @@
 
 module.exports = {
   siteName: 'Yo',
-  plugins: []
+  templates: {
+    Post: '/blog/:slug',
+  },
+  plugins: [
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'content/blog/**/*.md',
+        typeName: 'Post',
+        remark: {
+          // remark options
+        }
+      }
+    }
+  ],
+  transformers: {
+    remark: {
+      // externalLinksTarget,
+      // externalLinksRel,
+      // autolinkClassName
+    }
+  }
 }
